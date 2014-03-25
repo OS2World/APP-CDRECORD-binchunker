@@ -1,0 +1,7 @@
+This is OS/2 compiled binchunker for Unix, version 1.0.0
+For usage and other information see readme.
+
+bchunk1.exe is the modified version of binchunker for work with cdrdao images
+and toc files. 
+
+Author of the port: Nick Lepehin, nickk9@nettaxi.com

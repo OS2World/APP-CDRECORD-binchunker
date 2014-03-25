@@ -1,0 +1,100 @@
+
+	binchunker for Unix, version 1.0.0
+	Copyright (C) 1998  Heikki Hannikainen <hessu@pspt.fi>
+	
+	http://hes.iki.fi/bchunk/
+	
+	Created with the kind help of Bob Marietta <marietrg@SLU.EDU>,
+	partly based on his Pascal (Delphi) implementation.
+	Released under the GNU GPL, version 2 or later (at your option).
+	
+	---
+
+  Licence:
+	
+	This program is free software; you can redistribute it and/or modify
+	it under the terms of the GNU General Public License as published by
+	the Free Software Foundation; either version 2 of the License, or
+	(at your option) any later version.
+      
+	This program is distributed in the hope that it will be useful,
+	but WITHOUT ANY WARRANTY; without even the implied warranty of
+	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+	GNU General Public License for more details.
+      
+	You should have received a copy of the GNU General Public License
+	along with this program; if not, write to the Free Software
+	Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 
+	02111-1307 USA
+	
+	---
+
+  Credits:
+	
+	This is a Unix/C rewrite of the fine BinChunker software for
+	some non-Unix system. The non-Unix version of BinChunker
+	can be found at http://home.ptd.net/~redline/binchunker.html .
+	Thanks go to Bob Marietta <marietrg@SLU.EDU>, the author of
+	BinChunker, for the extensive help, documentation and letting me
+	look at his Pascal/Delphi source code!
+  	
+  	---
+  	
+  What on earth is this stuff:
+  
+  	binchunker converts a CD image in a ".bin / .cue" format
+  	(sometimes ".raw / .cue") to a set of .iso and .cdr tracks.
+  	
+  	The bin/cue format is used by some non-Unix cd-writing
+  	software, but is not supported on most other cd-writing
+  	programs.
+  	
+  	The .iso track contains an ISO file system, which can be
+  	mounted through a loop device on Linux systems, or
+  	written on a CD-R using cdrecord.
+  	
+  	The .cdr tracks are in the native CD audio format. They can
+  	be either written on a CD-R using cdrecord -audio, or converted
+  	to WAV (or any other sound format for that matter) using
+  	sox.
+  	
+  	---
+  	
+  How to install this stuff:
+  	
+  	gzip -d -c bchunk-1.0.0.tar.gz | tar xvf -
+  	cd bchunk-1.0.0
+  	make
+  	
+  	... and copy the resulting 'bchunk' binary to your favourite
+  	directory in your $PATH. /usr/local/bin is a good one.
+  	
+  	If your system does not have GCC installed, edit Makefile,
+  	uncommenting the CC lines.
+  	
+  	bchunk has been successfully compiled on the following platforms:
+  	
+  		Linux 2.0, i686, glibc 2.0.7, gcc 2.7.2.3  (RedHat 5.1)
+  		Solaris 2.5.1, SPARC, gcc 2.7.2
+  		Solaris 2.6, SPARC, gcc 2.8.1
+  		Digital Unix 4.0c, Alpha, DEC C V5.2-033
+  	
+  	It should be ANSI enough to compile on any decent system.
+  	(The HP-UX bundled compiler is not decent.)
+  	
+  	---
+  	
+  How to use this stuff:
+  
+  	bchunk [-v] <image.bin> <image.cue> <basename>
+  	
+  	image.bin is the raw cd image file. image.cue is the
+  	track index file containing track types and offsets.
+  	basename is used for the beginning part of the created
+  	track files.
+	
+	The [-v] flag makes binchunker print some more unnecessary
+	messages, which should not be of interest for anyone.
+	
+	
+	
